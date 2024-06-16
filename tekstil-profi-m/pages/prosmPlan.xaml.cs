@@ -22,7 +22,7 @@ namespace tekstil_profi_m.pages
     /// </summary>
     public partial class prosmPlan : Window
     {
-        private ObservableCollection<nackladn.OrderItem> orderItems;
+        private ObservableCollection<nackladn.nacklItem> nacklItems;
         private ObservableCollection<Plan> planCollection;
         public prosmPlan()
         {

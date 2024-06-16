@@ -21,7 +21,7 @@ namespace tekstil_profi_m.pages
     /// </summary>
     public partial class nackladn : Window
     {
-        private ObservableCollection<OrderItem> orderItems = new ObservableCollection<OrderItem>();
+        private ObservableCollection<nacklItem> nacklItems = new ObservableCollection<nacklItem>();
         private ObservableCollection<Merch> merchCollection;
         private int _currentPage = 1;
         private int _countInPage = 3;
@@ -59,32 +59,32 @@ namespace tekstil_profi_m.pages
             }
         }
 
-        private void UpdateOrderViewButtonVisibility()
+        private void UpdateNacklViewButtonVisibility()
         {
-            if (orderItems.Any())
+            if (nacklItems.Any())
             {
-                ShowOrderButton.Visibility = Visibility.Visible;
+                ShowNacklButton.Visibility = Visibility.Visible;
             }
             else
             {
-                ShowOrderButton.Visibility = Visibility.Collapsed;
+                ShowNacklButton.Visibility = Visibility.Collapsed;
             }
         }
 
-        private void ShowOrderButton_Click(object sender, RoutedEventArgs e)
+        private void ShowNacklButton_Click(object sender, RoutedEventArgs e)
         {
-           pechNacladn orderViewWindow = new pechNacladn(orderItems);
+           pechNacladn orderViewWindow = new pechNacladn(nacklItems);
             orderViewWindow.ShowDialog();
 
         }
 
-        private void AddToOrder_Click(object sender, RoutedEventArgs e)
+        private void AddToNackl_Click(object sender, RoutedEventArgs e)
         {
             if (lv.SelectedItem != null)
             {
                 Merch selectedMerch = lv.SelectedItem as Merch;
 
-                OrderItem orderItem = new OrderItem
+                nacklItem nacklItem = new nacklItem
                 {
                     MerchId = selectedMerch.id,
                     MerchName = selectedMerch.name,
@@ -92,15 +92,10 @@ namespace tekstil_profi_m.pages
                     MerchRazmer = selectedMerch.razmer,
                     MerchColor = selectedMerch.color,
                     PhotoPath = selectedMerch.photo,
-                    
-                    
                 };
 
-                
-
-                orderItems.Add(orderItem);
-
-                UpdateOrderViewButtonVisibility();
+                nacklItems.Add(nacklItem);
+                UpdateNacklViewButtonVisibility();
             }
         }
 
@@ -114,7 +109,7 @@ namespace tekstil_profi_m.pages
         }
 
 
-        public class OrderItem
+        public class nacklItem
         {
        
             public string name { get; set; }

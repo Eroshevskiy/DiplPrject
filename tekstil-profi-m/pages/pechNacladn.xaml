@@ -5,45 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tekstil_profi_m.pages"
         mc:Ignorable="d"
-        Title="pechNacladn" MaxHeight="550" MinHeight="550" MaxWidth="880" MinWidth="880">
+        Title="pechNacladn"  MinHeight="550" MaxWidth="960" MinWidth="960">
     <Grid Background="#FF3786E4">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <ListView Name="OrderLV" Grid.Row="1" Background="#FFE2D2D2" FontSize="16" FontWeight="Bold" Foreground="#FF3786E4" >
+
+        <ListView Name="OrderLV" Grid.Row="1" Background="#FFE2D2D2" FontSize="16" FontWeight="Bold" Foreground="#FF3786E4"  >
             <ListView.View>
-                <GridView >
-                    <GridViewColumn Header="Название"  DisplayMemberBinding="{Binding MerchName}" />
+                <GridView>
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding MerchName}" />
                     <GridViewColumn Header="Материал" DisplayMemberBinding="{Binding MerchMaterial}" />
                     <GridViewColumn Header="Размер" DisplayMemberBinding="{Binding MerchRazmer}" />
                     <GridViewColumn Header="Цвет" DisplayMemberBinding="{Binding MerchColor}" />
                     <GridViewColumn Header="Количество">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding count, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Width="100" />
+                                <TextBox Text="{Binding count, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}" Width="100" Height="25" VerticalAlignment="Center"  PreviewTextInput="TextBox_PreviewTextInput"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-
-                    <GridViewColumn Header="Фото">
+                    
+                    <GridViewColumn Header="Ответственный" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding PhotoPath}" Width="100" Height="100" />
-                                
+                                <ComboBox ItemsSource="{Binding OtvetCollection}" DisplayMemberPath="name" SelectedItem="{Binding OtvetPoint, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}" VerticalAlignment="Center" Width="135" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Отвественный" Width="150">
+                    <GridViewColumn Header="Фото" Width="155">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox ItemsSource="{Binding OtvetCollection}" DisplayMemberPath="name" SelectedItem="{Binding OtvetPoint, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, ValidatesOnDataErrors=True}" Width="100" />
+                                <Image Source="{Binding PhotoPath}" Width="150" Height="150" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-
 
                 </GridView>
             </ListView.View>
@@ -52,10 +51,9 @@
         <TextBlock Name="DiscountInfoTextBlock" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
         <Button Grid.Row="2" Content="Удалить позицию" Click="ydalClick" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Height="35"/>
         <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <Button Content="Печать" Width="150"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"  Height="35" Click="PrintButton_Click"/>
-            <Button Content="Сохранить план" Width="150"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10"  Height="35" Click="SavePlan"/>
-            
+            <Button Content="Печать" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Height="35" Click="PrintButton_Click"/>
+            <Button Content="Сохранить план" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Height="35" Click="SavePlan"/>
         </StackPanel>
-        
     </Grid>
+
 </Window>

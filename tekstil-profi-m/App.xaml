@@ -5,16 +5,31 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="DataGridColumnHeader">
-            <Setter Property="Background" Value="#FFE2D2D2" />
-            <!-- Другие свойства стиля для хедера столбца -->
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#FF3786E4"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="1,0,1,0"/>
         </Style>
 
+        <!-- Стиль для закругленных границ -->
         <Style TargetType="Border" x:Key="RoundedBorderStyle">
             <Setter Property="CornerRadius" Value="20"/>
             <Setter Property="Padding" Value="5"/>
-            
         </Style>
 
+        <!-- Стиль для ячеек DataGrid -->
+        <Style TargetType="DataGridCell">
+            <Setter Property="Background" Value="#FFE2D2D2"/>
+            <Setter Property="BorderBrush" Value="#FF3786E4"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
 
+        <!-- Стиль для строк DataGrid -->
+        <Style TargetType="DataGridRow">
+            <Setter Property="Background" Value="#FFE2D2D2"/>
+        </Style>
+        
     </Application.Resources>
+
 </Application>

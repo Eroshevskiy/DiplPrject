@@ -24,34 +24,45 @@ namespace tekstil_profi_m.pages
     /// </summary>
     public partial class pechNacladn : Window
     {
-        private ObservableCollection<nackladn.OrderItem> orderItems;
+        private ObservableCollection<nackladn.nacklItem> nacklItems;
         
 
 
 
 
-        public pechNacladn(ObservableCollection<nackladn.OrderItem> orderItems)
+        public pechNacladn(ObservableCollection<nackladn.nacklItem> nacklItems)
         {
             InitializeComponent();
-            foreach (var orderItem in orderItems)
+            foreach (var nacklItem in nacklItems)
             {
-                orderItem.OtvetCollection = new ObservableCollection<Otvetstvenie>(dboconnect.modeldb.Otvetstvenie);
+                nacklItem.OtvetCollection = new ObservableCollection<Otvetstvenie>(dboconnect.modeldb.Otvetstvenie);
             }
-            this.orderItems = orderItems;
-            OrderLV.ItemsSource = orderItems;
+            this.nacklItems = nacklItems;
+            OrderLV.ItemsSource = nacklItems;
 
         }
 
-        
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            foreach (char c in e.Text)
+            {
+                if (!char.IsDigit(c))
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+        }
+
 
         private void ydalClick(object sender, RoutedEventArgs e)
         {
             if (OrderLV.SelectedItem != null)
             {
-                OrderItem selectedOrderItem = OrderLV.SelectedItem as OrderItem;
-                if (selectedOrderItem != null)
+                nacklItem selectednacklItem = OrderLV.SelectedItem as nacklItem;
+                if (selectednacklItem != null)
                 {
-                    orderItems.Remove(selectedOrderItem);
+                    nacklItems.Remove(selectednacklItem);
                     
                 }
             }
@@ -93,19 +104,19 @@ namespace tekstil_profi_m.pages
             {
                 using (var context = new dipEntitie())
                 {
-                    foreach (var orderItem in orderItems)
+                    foreach (var nacklItem in nacklItems)
                     {
                         var order = new Plan
                         {
 
-                            id_merch = orderItem.MerchId,
-                            id_otvetst = orderItem.OtvetPoint?.id ?? 1,
-                            material = orderItem.MerchMaterial,
-                            name = orderItem.MerchName,
-                            razmer = orderItem.MerchRazmer,
-                            color = orderItem.MerchColor,
-                            photo = orderItem.PhotoPath,
-                            count = orderItem.count 
+                            id_merch = nacklItem.MerchId,
+                            id_otvetst = nacklItem.OtvetPoint?.id ?? 1,
+                            material = nacklItem.MerchMaterial,
+                            name = nacklItem.MerchName,
+                            razmer = nacklItem.MerchRazmer,
+                            color = nacklItem.MerchColor,
+                            photo = nacklItem.PhotoPath,
+                            count = nacklItem.count 
 
                         };
 

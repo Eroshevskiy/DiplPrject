@@ -73,12 +73,12 @@
                             </Setter>
                         </Style>
                     </ContextMenu.Resources>
-                    <MenuItem Header="Добавить к чек-листу" Click="AddToOrder_Click" Foreground="#FFE2D2D2" Background="#FF3786E4" BorderBrush="{x:Null}" Cursor="Hand"/>
+                    <MenuItem Header="Добавить к чек-листу" Click="AddToNackl_Click" Foreground="#FFE2D2D2" Background="#FF3786E4" BorderBrush="{x:Null}" Cursor="Hand"/>
                 </ContextMenu>
             </ListView.ContextMenu>
 
         </ListView>
-        <Button Content="Просмотр чек-листа" Click="ShowOrderButton_Click" Name="ShowOrderButton" Visibility="Collapsed" Background="#FFE2D2D2" Foreground="#FF3786E4" Width="150" HorizontalAlignment="Right" Margin="10" Grid.Row="2"/>
+        <Button Content="Просмотр чек-листа" Click="ShowNacklButton_Click" Name="ShowNacklButton" Visibility="Collapsed" Background="#FFE2D2D2" Foreground="#FF3786E4" Width="150" HorizontalAlignment="Right" Margin="10" Grid.Row="2"/>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Background="#FF3786E4" >
             <Button Content="&lt;&lt;&lt;" Click="PreviousPageButton_Click" Margin="5" Foreground="#FF3786E4" Background="#FFE2D2D2" Cursor="Hand" />

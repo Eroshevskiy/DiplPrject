@@ -5,84 +5,110 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tekstil_profi_m.pages"
         mc:Ignorable="d"
-        Title="planRab" MinHeight="650" MaxHeight="650" MinWidth="943" MaxWidth="943">
-    <Grid >
+        Title="planRab" MinHeight="650" MaxHeight="650" MinWidth="1050" MaxWidth="1050" >
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
-
-        <DataGrid Name="BDPlan" AutoGenerateColumns="False" GridLinesVisibility="None" CanUserResizeColumns="False"
-          CanUserResizeRows="False" CanUserSortColumns="False" CanUserReorderColumns="False" Background="#FFE2D2D2" >
+        <DataGrid Name="BDPlan" AutoGenerateColumns="False" GridLinesVisibility="Vertical" CanUserResizeColumns="False"
+              CanUserResizeRows="False" CanUserSortColumns="False" CanUserReorderColumns="False" Background="#FFE2D2D2">
 
             <DataGrid.Resources>
-                <!-- Создаем общий стиль для ячеек -->
+                
                 <Style TargetType="DataGridCell">
                     <Setter Property="Background" Value="#FFE2D2D2"/>
+                    <Setter Property="BorderBrush" Value="#FF3786E4"/>
+                    <Setter Property="BorderThickness" Value="1"/>
                 </Style>
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <!-- Колонки с текстовыми данными -->
+                
                 <DataGridTextColumn Header="Название" Binding="{Binding name}" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="Foreground" Value="White"/>
                             <Setter Property="Background" Value="#FF3786E4"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="Padding" Value="1,0,1,0"/>
+                            
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Материал" Binding="{Binding material}" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Background" Value="#FF3786E4"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="Padding" Value="1,0,1,0"/>
+                            
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="Материал" Binding="{Binding material}" Width="auto" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
+                <DataGridTextColumn Header="Размер" Binding="{Binding razmer}" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="Foreground" Value="White"/>
                             <Setter Property="Background" Value="#FF3786E4"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="Padding" Value="1,0,1,0"/>
+                            
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Цвет" Binding="{Binding color}" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Background" Value="#FF3786E4"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="Padding" Value="1,0,1,0"/>
+                            
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Количество" Binding="{Binding count}" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Background" Value="#FF3786E4"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="Padding" Value="5,0,5,0"/>
+                            
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Отвественный" Binding="{Binding Otvetstvenie.name}" FontSize="20" FontWeight="Bold"  Foreground="#FF3786E4">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="Background" Value="#FF3786E4"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="Padding" Value="10,0,10,0"/>
+                            
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="Размер" Binding="{Binding razmer}" Width="auto" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
-                    <DataGridTextColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="Background" Value="#FF3786E4"/>
-                        </Style>
-                    </DataGridTextColumn.HeaderStyle>
-                </DataGridTextColumn>
-
-                <DataGridTextColumn Header="Цвет" Binding="{Binding color}" Width="auto" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
-                    <DataGridTextColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="Background" Value="#FF3786E4"/>
-                        </Style>
-                    </DataGridTextColumn.HeaderStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Количество" Binding="{Binding count}" Width="auto" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
-                    <DataGridTextColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="Background" Value="#FF3786E4"/>
-                        </Style>
-                    </DataGridTextColumn.HeaderStyle>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="Ответственный" Binding="{Binding Otvetstvenie.name}" Width="auto" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
-                    <DataGridTextColumn.HeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="Background" Value="#FF3786E4"/>
-                        </Style>
-                    </DataGridTextColumn.HeaderStyle>
-                </DataGridTextColumn>
-
-                <!-- Колонка с фото -->
+                
                 <DataGridTemplateColumn Header="Фото" Width="auto">
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="Foreground" Value="White"/>
                             <Setter Property="Background" Value="#FF3786E4"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="18"/>
+                            <Setter Property="Padding" Value="1,0,1,0"/>
                         </Style>
                     </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
@@ -100,22 +126,13 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-
-
                 
-
-                
-
                 
             </DataGrid.Columns>
         </DataGrid>
 
-
-
         <StackPanel Grid.Row="1" Orientation="Horizontal" Background="#FFE2D2D2">
-            
-
-            <Button Width="150" Height="40" FontSize="16" FontWeight="Bold" Foreground="White" Background="#FF3786E4"  Click="nazClick" Cursor="Hand"  >
+            <Button Width="150" Height="40" FontSize="16" FontWeight="Bold" Foreground="White" Background="#FF3786E4" Click="nazClick" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" Background="{TemplateBinding Background}">
@@ -125,8 +142,6 @@
                 </Button.Template>
                 Назад
             </Button>
-
         </StackPanel>
-
     </Grid>
 </Window>
