@@ -38,7 +38,7 @@
                 </Button.Template>
             </Button>
             <Button Height="50" Width="200" FontSize="16" Background="#FF3786E4" Margin="0,10,0,0" Cursor="Hand" Click="rabClick"  >
-                <TextBlock Foreground="#EEEE">Работники</TextBlock>
+                <TextBlock Foreground="#EEEE">Сотрудники</TextBlock>
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" Background="{TemplateBinding Background}">

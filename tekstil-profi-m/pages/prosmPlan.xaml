@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:tekstil_profi_m.pages"
         mc:Ignorable="d"
-        Title="prosmPlan" MinHeight="650" MaxHeight="650" MinWidth="1135" MaxWidth="1135">
+        Title="prosmPlan" MinHeight="650" MaxHeight="650" MinWidth="1153" MaxWidth="1153">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -116,9 +116,7 @@
                             <Image Width="150">
                                 <Image.Source>
                                     <Binding Path="photo">
-                                        <Binding.TargetNullValue>
-                                            <ImageSource>/photo/logo.png</ImageSource>
-                                        </Binding.TargetNullValue>
+                                        
                                     </Binding>
                                 </Image.Source>
                             </Image>
