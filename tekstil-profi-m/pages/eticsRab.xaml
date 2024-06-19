@@ -6,18 +6,15 @@
         xmlns:local="clr-namespace:tekstil_profi_m.pages"
         mc:Ignorable="d"
         Title="eticsRab" MinHeight="650" MaxHeight="650" MinWidth="955" MaxWidth="955">
-    <Grid >
+    <Grid xmlns:sys="clr-namespace:System;assembly=mscorlib">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
-
         <DataGrid Name="BDWorkers" AutoGenerateColumns="False" GridLinesVisibility="None" CanUserResizeColumns="False"
-          CanUserResizeRows="False" CanUserSortColumns="False" CanUserReorderColumns="False" Background="#FFE2D2D2" >
-
+              CanUserResizeRows="False" CanUserSortColumns="False" CanUserReorderColumns="False" Background="#FFE2D2D2">
             <DataGrid.Resources>
-                <!-- Создаем общий стиль для ячеек -->
                 <Style TargetType="DataGridCell">
                     <Setter Property="Background" Value="#FFE2D2D2"/>
                     <Setter Property="BorderBrush" Value="#FF3786E4"/>
@@ -26,7 +23,6 @@
             </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <!-- Колонки с текстовыми данными -->
                 <DataGridTextColumn Header="Название" Binding="{Binding name}" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
@@ -35,10 +31,10 @@
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                             <Setter Property="FontSize" Value="18"/>
                             <Setter Property="Padding" Value="1,0,1,0"/>
-                            <!-- Добавляем отступы -->
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
+
                 <DataGridTextColumn Header="Материал" Binding="{Binding material}" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
@@ -47,7 +43,6 @@
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                             <Setter Property="FontSize" Value="18"/>
                             <Setter Property="Padding" Value="1,0,1,0"/>
-                            <!-- Добавляем отступы -->
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -60,10 +55,10 @@
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                             <Setter Property="FontSize" Value="18"/>
                             <Setter Property="Padding" Value="1,0,1,0"/>
-                            <!-- Добавляем отступы -->
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
+
                 <DataGridTextColumn Header="Цвет" Binding="{Binding color}" FontSize="20" FontWeight="Bold" Foreground="#FF3786E4">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
@@ -72,13 +67,10 @@
                             <Setter Property="HorizontalContentAlignment" Value="Center"/>
                             <Setter Property="FontSize" Value="18"/>
                             <Setter Property="Padding" Value="1,0,1,0"/>
-                            <!-- Добавляем отступы -->
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
-                
 
-                <!-- Колонка с фото -->
                 <DataGridTemplateColumn Header="Фото" Width="auto">
                     <DataGridTemplateColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
@@ -104,13 +96,23 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-
-
-                <!-- Колонки с кнопками -->
                 <DataGridTemplateColumn Width="120">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="EticPech" Width="90" Background="#FF3786E4" Foreground="#FFE2D2D2" FontWeight="Bold" FontSize="18" Height="70" Content="Этикетка" Click="EticPech" Cursor="Hand" >
+                            <Button Name="EticPech" Width="90" Background="#FF3786E4" Foreground="#FFE2D2D2" FontWeight="Bold" FontSize="18" Height="70" Content="Этикетка" Click="EticPech" Cursor="Hand">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding name}" Value="{x:Static sys:String.Empty}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding name}" Value="{x:Null}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
                                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" Background="{TemplateBinding Background}">
@@ -122,19 +124,11 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
-                
-
-                
             </DataGrid.Columns>
         </DataGrid>
 
-
-
         <StackPanel Grid.Row="1" Orientation="Horizontal" Background="#FFE2D2D2">
-            
-
-            <Button Width="150" Height="40" FontSize="16" FontWeight="Bold" Foreground="White" Background="#FF3786E4"  Click="nazClick" Cursor="Hand"  >
+            <Button Width="150" Height="40" FontSize="16" FontWeight="Bold" Foreground="White" Background="#FF3786E4" Click="nazClick" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" Background="{TemplateBinding Background}">
@@ -144,8 +138,7 @@
                 </Button.Template>
                 Назад
             </Button>
-
         </StackPanel>
-
     </Grid>
+
 </Window>

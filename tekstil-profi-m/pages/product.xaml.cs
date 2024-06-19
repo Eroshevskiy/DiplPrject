@@ -40,7 +40,7 @@ namespace tekstil_profi_m.pages
             if (button != null)
             {
                 // Получаем выбранный объект из DataGrid
-                var selectedMerch = BDproduct.SelectedItem as Merch; // Убедитесь, что здесь тип Merch
+                var selectedMerch = BDproduct.SelectedItem as Merch; 
                 if (selectedMerch != null)
                 {
                     // Получаем путь к файлу этикетки из выбранного объекта
